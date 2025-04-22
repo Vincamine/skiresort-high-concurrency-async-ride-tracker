@@ -5,14 +5,19 @@ This system is designed to handle high-throughput, low-latency processing of ski
 ⸻
 
 🧱 Architecture Components
+
 	•	Client1 / Client2: Generate and send up to 200,000 lift ride events using multithreaded API clients. Client2 additionally logs latency, status, and throughput metrics.
+
 	•	Server (Servlet-based): Handles RESTful POST/GET requests. Writes go through RabbitMQ; reads are served via Redis cache.
+
 	•	RabbitMQ (Message Queue): Asynchronous decoupling between ingestion and processing layers.
+
 	•	Consumer: Pulls messages from RabbitMQ, parses data, and stores results in Redis using a thread pool and asynchronous processing.
 
 ⸻
 
 🛠️ Core Technologies & Techniques
+
 	•	Concurrency:
 	•	ExecutorService and CompletableFuture ensure scalable multithreading.
 	•	ConcurrentHashMap for safe, shared-memory operations.
@@ -32,7 +37,11 @@ This system is designed to handle high-throughput, low-latency processing of ski
 ⸻
 
 📈 Optimization Strategies
+
 	•	Redis Read Replicas: Offload heavy read traffic.
+
 	•	Redis Cluster: Enables automatic key sharding across multiple nodes.
+
 	•	Hot Key Sharding: Hash-based key splitting for load balancing.
+    
 	•	Hot/Cold Data Separation: Redis used for active (“hot”) data; MySQL planned for persistent storage of inactive (“cold”) data.
