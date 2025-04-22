@@ -18,8 +18,6 @@ This system is designed to handle **high-throughput, low-latency processing** of
 - **Consumer**  
   Pulls messages from RabbitMQ, parses data, and stores results in Redis using a thread pool and asynchronous processing.
 
----
-
 ## 🛠️ Core Technologies & Techniques
 
 - **Concurrency**
