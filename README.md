@@ -24,7 +24,7 @@ This system is designed to handle high-throughput, low-latency processing of ski
 	•	RabbitMQ:
 	•	Enables high-throughput message queuing between API and consumer layers.
 	•	Custom channel pooling to reduce connection overhead.
-    
+
 	•	Performance Testing:
 	•	JMeter used for simulating 128 threads × 500 iterations (64,000+ GET requests).
 	•	System supports ~2,965 requests/sec with <30ms average response time.
